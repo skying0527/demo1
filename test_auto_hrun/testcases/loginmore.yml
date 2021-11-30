@@ -1,0 +1,42 @@
+config:
+    name: logincase
+    request:
+    base_url: http://127.0.0.1:8000
+    parameters:
+#          - user-pwd:
+#              - ["admin", "12345678"]
+#              - ["superadmin", "123"]
+#              - ["admin3", "1234567"]
+#              - ["test", "12345678"]
+          user: ["admin", "superadmin", "admin3"]
+          pwd: ["12345678","12345","12345678"]
+teststeps:
+-   name: login case
+    request:
+        url: /api/v1/login/
+        method: POST
+        headers:
+            Content-Type: application/json
+            User-Agent: HTTPie/2.2.0
+        json:
+            username: $user
+            password: $pwd
+    extract:
+        - token: content.token         # 提取token
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 1
+    -   eq:
+        - content.msg
+        - login success
+#        - eq: [status_code, 200]
+#        - eq: [headers.Content-Type, application/json]
+#        - eq: [content.msg, login success!]
+#        - eq: [content.code, 0]

@@ -1,0 +1,8 @@
+Collecting django-reversion
+  Using cached django_reversion-3.0.7-py3-none-any.whl (84 kB)
+Requirement already satisfied: django>=1.11 in d:\program files\python\lib\site-packages (from django-reversion) (3.0.8)
+Requirement already satisfied: sqlparse>=0.2.2 in d:\program files\python\lib\site-packages (from django>=1.11->django-reversion) (0.3.1)
+Requirement already satisfied: asgiref~=3.2 in d:\program files\python\lib\site-packages (from django>=1.11->django-reversion) (3.2.10)
+Requirement already satisfied: pytz in d:\program files\python\lib\site-packages (from django>=1.11->django-reversion) (2020.1)
+Installing collected packages: django-reversion
+Successfully installed django-reversion-3.0.7

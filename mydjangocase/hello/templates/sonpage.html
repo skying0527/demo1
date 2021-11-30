@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子模板</title>
+</head>
+<body>
+
+{% extends 'basepage.html' %}
+
+{% block content %}
+    <p>我填充的内容</p>
+{% endblock content %}
+
+{% block ads %}
+    <p>自动化内容</p>
+    <ol>
+        {% for i in ads %}
+             <li>{{i}}</li>
+        {% endfor %}
+    </ol>
+
+{% endblock ads %}
+
+</body>
+</html>

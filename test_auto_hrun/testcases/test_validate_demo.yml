@@ -1,0 +1,27 @@
+config:
+  name: test demo
+  request:
+  base_url: http://127.0.0.1:8000
+teststeps:
+-   name: test demo1
+
+    request:
+        url: /api/test/demo/
+        method: GET
+        headers:
+          Content-Type: application/json
+          User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
+#          User-Agent: HTTPie/2.2.0
+        json:
+          username: admin
+          password: 12345678
+    extract:
+       - student_id: content.data.0.student_id
+    validate:
+          - eq: [status_code, 200]
+          - less_than: [status_code, 400]
+          - equals: [content.code, 0]
+          - eq: [content.msg, success!]
+          - eq: [$student_id, '1000002']
+          - length_equals: [content.data, 4]
+          - greater_than_or_equals: [content.data.0.age, 19]

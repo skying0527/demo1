@@ -1,0 +1,9 @@
+config:
+  name: login case
+
+testcases:
+  test login suites:
+    testcase: testcases\login.yml
+    parameters:
+      user: ["admin","superadmin","admin3","test"]
+      pwd: ["12345678","123456"]

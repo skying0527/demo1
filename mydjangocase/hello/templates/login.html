@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#aj').click(function(){
+            var name = $("#id_username").val();
+            var psw = $("#id_password").val();
+            var token = $('[name="csrfmiddlewaretoken"]').attr("value");
+            if (name && psw ){
+                $.post("success",
+                        {"username":name,
+                        "password":psw,
+                        "csrfmiddlewaretoken": token
+                         },
+                    function(result){
+                     if (result.status == "1") {
+                           window.location.href = "/xadmin/";   //页面成功跳转
+                        } else {
+                           $("#msg").text(result.msg)          //页面失败显示提示语
+                       }
+
+                });
+    }
+  });
+ })
+
+{#$("#aj").click(function() {#}
+{#        var name = $("#id_username").val();#}
+{#        var psw = $("#id_password").val();#}
+{#        var token = $('[name="csrfmiddlewaretoken"]').attr("value");#}
+{#        if (name && psw ){#}
+{#                $.ajax({#}
+{#                    "url" : "/login_json/",    //提交URL#}
+{#                    "type" : "Post",//处理方式#}
+{#                    "data" : {#}
+{#                                "username":name,#}
+{#                                "password":psw,#}
+{#                                "csrfmiddlewaretoken": token,#}
+{##}
+{#                            },//提交的数据#}
+{#                    "dataType" : "json",   //指定返回的数据格式#}
+{#                    "success" : callback,  //执行成功后的回调函数#}
+{#                    "async" : "false",//是否同步#}
+{#                    //错误后执行#}
+{#                    "error" : function() {#}
+{#                         $("#msg").text(result.msg)          //页面失败显示提示语#}
+{#                    }#}
+{##}
+{#                });#}
+{#        }#}
+{##}
+{#        function callback(result) {#}
+{#            if (result.status == "1") {#}
+{#                           window.location.href = "/xadmin/";   //页面成功跳转#}
+{#                        } else {#}
+{#                           $("#msg").text(result.msg)          //页面失败显示提示语#}
+{#                       }#}
+{#        }#}
+{#    })        #}
+    </script>
+</head>
+<body>
+
+<div style="margin: 15% 40%;">
+    <h1>欢迎登陆！</h1>
+    <form action="/login/ " method="POST">
+        {% csrf_token %}
+        <p style="text-align:center">
+            <label for="id_username">用户名：</label>
+            <input type="text" id="id_username" name="username" placeholder="用户名" autofocus required="required">*
+        </p>
+        <p style="text-align:center">
+            <label for="id_password">密码：</label>
+            <input type="password" id="id_password" placeholder="密码" name="password" required="required">*
+        </p>
+        <p style="text-align:center">
+            <input type="submit" value="登陆">
+            <a href="/forget">忘记密码？</a>
+        </p>
+        <p style="color: red;text-align: center">{{ error_msg }}</p>
+
+     </form>
+     <button id="aj">点这里调试ajx</button>
+     <br><br>
+     <a href="/register">新用户先注册</a>
+</div>
+</body>
+</html>

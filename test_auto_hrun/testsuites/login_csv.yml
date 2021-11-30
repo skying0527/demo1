@@ -1,0 +1,8 @@
+config:
+  name: login case
+
+testcases:
+  test login suites:
+    testcase: testcases\test_param_csv.yml
+    parameters:
+       user-pwd: ${P(data/user_name.csv)}

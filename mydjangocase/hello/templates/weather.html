@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天气</title>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#weather").click(function () {
+        $.get("/weather_code/",
+                {
+                    city: "上海",
+                    time: "2019-04-05"
+                },
+                function (result) {
+                    alert("返回数据: \n" + "reason:" + result.reason + "\n" + "weather_name:" + result.weather_name);
+                });
+    });
+})
+</script>
+
+</head>
+
+<body>
+     <div style="margin: 15% 40%;">
+         <p>获取天气，返回json数据</p>
+
+         <button  id="weather">点我！，获取json数据</button>
+    </div>
+</body>
+</html>

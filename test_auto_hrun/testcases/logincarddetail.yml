@@ -1,0 +1,18 @@
+config:
+    name: testcases description
+    variables: {}
+teststeps:
+-   name: /card_list_view/
+    request:
+        headers:
+            Authorization: Token e9fcf7c684771181edb5690b9324a23e97b9b4a3
+            User-Agent: HTTPie/2.2.0
+        method: GET
+        url: http://127.0.0.1:8000/card_list_view/
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json

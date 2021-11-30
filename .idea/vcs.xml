@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pullziliao/testgit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pullziliao/testgit/pull-Demo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pullziliao/testgit/web-demotest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pullziliao/testgit/web-unittest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pullziliao/testgit/web-unittest1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ska" vcs="Git" />
+  </component>
+</project>

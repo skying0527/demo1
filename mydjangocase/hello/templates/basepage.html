@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>母模板</title>
+</head>
+<body>
+{% include 'top.html' %}
+
+<!--这是一段注释。block是一个块标签， content是标签名称-->
+{% block content %} {% endblock content %}
+<p>-----------------------------自动化教程--------------------------------</p>
+
+<!--这是一段注释。block是一个块标签, ad是标签名称-->
+{% block ads %} {% endblock ads %}
+
+{% block defult %}
+<p>如果子页面中，没填充此block内容，这里的就是默认内容</p>
+{% endblock defult %}
+
+{% include 'end.html' %}
+</body>
+</html>

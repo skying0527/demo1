@@ -1,0 +1,30 @@
+config:
+    name: testcases description
+    variables: {}
+teststeps:
+-   name: /api/v1/login/
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: HTTPie/2.2.0
+        json:
+            password: '12345678'
+            username: admin
+        method: POST
+        url: http://127.0.0.1:8000/api/v1/login/
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json
+    -   eq:
+        - content.code
+        - 1
+    -   eq:
+        - content.msg
+        - login success
+    -   eq:
+        - content.token
+        - e9fcf7c684771181edb5690b9324a23e97b9b4a3
